@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/context/spring-aop.xsd"
+>
+    <context:annotation-config/>
+
+    <bean id="cat" class="com.pipizhu.pojo.Cat"></bean>
+    <bean id="dog" class="com.pipizhu.pojo.Dog"></bean>
+    <bean id="dog2" class="com.pipizhu.pojo.Dog"></bean>
+
+<!--    原本的手动装配-->
+<!--    <bean id="people" class="com.pipizhu.pojo.People">-->
+<!--        <property name="name" value="皮皮猪"></property>-->
+<!--        <property name="cat" ref="cat"></property>-->
+<!--        <property name="dog" ref="dog"></property>-->
+<!--    </bean>-->
+
+<!--        byName自动装配-->
+<!--        <bean id="people" class="com.pipizhu.pojo.People" autowire="byName">-->
+<!--            <property name="name" value="皮皮猪"/>-->
+<!--        </bean>-->
+
+<!--    byType自动装配-->
+<!--    <bean id="people" class="com.pipizhu.pojo.People" autowire="byType">-->
+<!--        <property name="name" value="皮皮猪"/>-->
+<!--    </bean>-->
+
+<!--    注解配置-->
+    <bean id="people" class="com.pipizhu.pojo.People"/>
+
+</beans>
+

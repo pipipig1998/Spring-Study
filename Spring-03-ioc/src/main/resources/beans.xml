@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--    使用Spring来创建对象
+        bean = 对象  property = 设置值
+        核心就是set方法
+
+-->
+<!--  无参构造-->
+<!--    <bean id="user" class="com.pipizhu.pojo.User">-->
+<!--        <property name="name" value="皮皮猪"/>-->
+<!--    </bean>-->
+
+
+<!--&lt;!&ndash;    有参构造第一种方法:下标赋值&ndash;&gt;-->
+<!--    <bean id="user" class="com.pipizhu.pojo.User">-->
+<!--        <constructor-arg index="0" value="皮皮猪"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--&lt;!&ndash;    有参构造第二种方法:通过类型创建&ndash;&gt;-->
+<!--    <bean id="user" class="com.pipizhu.pojo.User">-->
+<!--        <constructor-arg type="java.lang.String" value="王帅"/>-->
+<!--    </bean>-->
+
+<!--    有参构造第三种：直接通过参数名-->
+    <bean id="user" class="com.pipizhu.pojo.User" name="user2,u2">
+        <constructor-arg name="s" value="哈哈哈哈"/>
+    </bean>
+
+<!--    <alias name="user" alias="bieming"/>-->
+
+</beans>
