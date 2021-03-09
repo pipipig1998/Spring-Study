@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="userservice" class="com.pipizhu.service.UserServiceImpl"/>
+    <bean id="log" class="com.pipizhu.log.Log"/>
+    <bean id="afterlog" class="com.pipizhu.log.AfterLog" />
+    <bean id="dog" class="com.pipizhu.service.Dog"/>
+    <bean id="mylog" class="com.pipizhu.log.MyLog"/>
+    <bean id="mypointcut" class="com.pipizhu.DIY.MyPointCut"/>
+<!--第一种方式 配置AOP-->
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        切入点  execution（要执行的位置，类，参数，对象，返回值）&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.pipizhu.service.UserServiceImpl.*(..))"/>-->
+<!--        <aop:pointcut id="dog_pointcut" expression="execution(* com.pipizhu.service.Dog.shout(..))"/>-->
+<!--&lt;!&ndash;        执行环绕增加&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="mylog" pointcut-ref="dog_pointcut"/>-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterlog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+
+<!--    第二种方式-->
+<!--    <aop:config>-->
+<!--        <aop:aspect ref="mypointcut">-->
+<!--            <aop:pointcut id="pointcut" expression="execution(* com.pipizhu.service.*.*(..))"/>-->
+<!--            <aop:before method="before" pointcut-ref="pointcut"/>-->
+<!--            <aop:after-returning method="after" pointcut-ref="pointcut"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+<!--    第三种方式-->
+    <context:component-scan base-package="com.pipizhu"/>
+    <bean id="annotationpointcut" class="com.pipizhu.DIY.AnnotationPointCut"/>
+    <aop:aspectj-autoproxy/>
+</beans>
+
